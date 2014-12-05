@@ -1,24 +1,14 @@
-var effets = new Array();
-effets[0]="bounce";
-effets[1]="drop";
-effets[2]="explode";
-effets[3]="fold";
-effets[4]="shake";
-effets[5]="clip";
-effets[6]="slide";
-
-/*
-slides[i++] = {
-content : '<div id="slideContent" style="margin:0 0 0 30px;"><h1 class="title-right">Festival des &eacute;crivains du monde 2013</h1><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="800px" height="600px" id="dewslider4" align="middle" ><param name="allowScriptAccess" value="sameDomain" /><param name="movie" value="dewslider.swf?xml=dewslider.xml" /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" /><embed src="dewslider.swf?xml=dewslider.xml" quality="high" bgcolor="#ffffff" width="800px" height="600px" name="dewslider4" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /></object></div>',
-	time : 168000
-};
-*/
+var effects = ["bounce","drop","explode","fold","shake","clip","slide"];
+var effectsCalendar = ["clip","slide"];
 
 var currentEvent=0;
 var currentMedia=0;
+var currentCalendar=0;
 
 myEvents={};
 myMedias={};
+myCalendar={};
+
 
 $(document).ready(function(){
 	// Accordion Left
@@ -42,10 +32,14 @@ $(document).ready(function(){
 	$( "#slides" ).hide();
 	$( "#events" ).hide();
 
+	
+	getCalendar();
 	getEvents();
 	getMedias();
-	startEvents=setTimeout(function(){runEvents()},5000);
-	startMedias=setTimeout(function(){runMedias()},5000);
+	
+	startCalendar=setTimeout(function(){runCalendar()},1000);
+//	startEvents=setTimeout(function(){runEvents()},5000);
+//	startMedias=setTimeout(function(){runMedias()},5000);
 });
 
 
@@ -70,6 +64,74 @@ function getMedias(){
       window.myMedias=JSON.parse(result);
     },
    });
+}
+
+
+function getCalendar(){
+  $.ajax({
+    url: "ajax/getCalendar.php",
+    dataType: "json",
+    success: function(result){
+      window.myCalendar=result;
+    },
+    error: function(result){
+    	alert(result.responseText);
+    }
+   });
+   
+	//clearTimeout(timeOutGetCalendar);
+	var timeOutGetCalendar=setTimeout(function(){getCalendar();},300000);
+}
+
+function getEffect(effectsTable,width,height){
+	if(width==undefined){
+		width=800;
+	}
+	if(height==undefined){
+		height=600;
+	}
+	
+	var randomnumber=Math.floor(Math.random()*effectsTable.length);
+	var selectedEffect = effectsTable[randomnumber];
+	var options = {};
+	if ( selectedEffect === "scale" ) {
+		options = { percent: 100 };
+	} else if ( selectedEffect === "size" ) {
+		options = { to: { width: width, height: height } };
+	}
+	return {name:selectedEffect, options: options};
+}
+
+function runCalendar(){
+	//getCalendar();
+	
+	if(currentCalendar>=myCalendar.length){currentCalendar=0;}
+	
+	// Récupération du lien vers l'image 
+	var src=window.myCalendar[currentCalendar]["attach"];
+	var summary=window.myCalendar[currentCalendar]["summary"];
+	var debug="<span class='debug'>"+summary+"<br/>"+src+"<br/></span>";
+	// Redimensionne l'image : par défaut, l'image est calée à 400px de haut par google, 
+	// paramètre =s400 remplacé par =s980 pour avoir 980px de haut
+	src=src.replace("=s400","=s980");
+	var html=debug+"<img src='"+src+"' id='calendar_img'/>";
+	$("#slides").html(html);
+	var width=$("#calendar_img").prop("width");
+	var height=$("#calendar_img").prop("height");
+	var ratio=width/height;
+	
+	clearTimeout(timeOutCalendar);
+	timeCalendar=30000;
+	
+	var effect=getEffect(effectsCalendar);
+	$("#slides").show(effect.name,effect.options, 1500);
+	var timeOutCalendar=setTimeout(function(){
+		var effect=getEffect(effectsCalendar);
+		$("#slides").hide(effect.name,effect.options, 1500, runCalendar);
+		},
+		timeCalendar);
+	currentCalendar++;
+
 }
 
 function runEvents(){
@@ -99,26 +161,13 @@ function runEvents(){
 	if(e.eventStart<=today && e.eventStart!="0000-00-00" && e.type!="Information" && e.type!="Fermeture"){
 		title="Today";
 	}
-	var randomnumber=Math.floor(Math.random()*7);
-	var selectedEffect = effets[randomnumber];
-	var options = {};
-	if ( selectedEffect === "scale" ) {
-		options = { percent: 100 };
-	} else if ( selectedEffect === "size" ) {
-		options = { to: { width: 800, height: 600 } };
-	}
+
+	var effect=getEffect(effects,200,150);
 	$("#events").html("<h2>"+title+"</h2><div id='eventContent'><h2>"+e.content+"</h2><h3>"+e.datetime+"<br/>"+e.place+"</h3></div>");
-	$("#events").show(selectedEffect,options, 1500);
+	$("#events").show(effect.name,effect.options, 1500);
 	var timeOutEvents=setTimeout(function(){
-		var randomnumber=Math.floor(Math.random()*7);
-		var selectedEffect = effets[randomnumber];
-		var options = {};
-		if ( selectedEffect === "scale" ) {
-			options = { percent: 0 };
-		} else if ( selectedEffect === "size" ) {
-			options = { to: { width: 200, height: 150 } };
-		}
-		$( "#events" ).hide(selectedEffect, options, 1500, runEvents);
+		var effect=getEffect(effects,200,150);
+		$( "#events" ).hide(effect.name,effect.options, 1500, runEvents);
 		},
 		10000);
 	currentEvent++;
@@ -143,14 +192,8 @@ function runMedias(){
 	if(e.eventStart<=today && e.eventStart!="0000-00-00"){
 		title="Today : "+title;
 	}
-	var randomnumber=Math.floor(Math.random()*7);
-	var selectedEffect = effets[randomnumber];
-	var options = {};
-	if ( selectedEffect === "scale" ) {
-		options = { percent: 100 };
-	} else if ( selectedEffect === "size" ) {
-		options = { to: { width: 800, height: 600 } };
-	}
+	
+	var effect=getEffect(effects,200,150);
 	
 	var width=e.ratio=="4/3"?800:860;
 	var height=e.ratio=="4/3"?600:484;
@@ -168,17 +211,10 @@ function runMedias(){
 
 	timeMedia=(e.time*1000)+4;
 	
-	$("#slides").show(selectedEffect,options, 1500);
+	$("#slides").show(effect.name,effect.options, 1500);
 	var timeOutMedias=setTimeout(function(){
-		var randomnumber=Math.floor(Math.random()*7);
-		var selectedEffect = effets[randomnumber];
-		var options = {};
-		if ( selectedEffect === "scale" ) {
-			options = { percent: 0 };
-		} else if ( selectedEffect === "size" ) {
-			options = { to: { width: 200, height: 150 } };
-		}
-		$("#slides").hide(selectedEffect, options, 1500, runMedias);
+		var effect=getEffect(effects,200,150);
+		$("#slides").hide(effect.name,effect.options, 1500, runMedias);
 		},
 		timeMedia);
 	currentMedia++;
