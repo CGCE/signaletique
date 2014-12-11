@@ -34,10 +34,10 @@ $(document).ready(function(){
 
 	
 	getCalendar();
-	getEvents();
-	getMedias();
+//	getEvents();
+//	getMedias();
 	
-	startCalendar=setTimeout(function(){runCalendar()},1000);
+//	startCalendar=setTimeout(function(){runCalendar()},1000);
 //	startEvents=setTimeout(function(){runEvents()},5000);
 //	startMedias=setTimeout(function(){runMedias()},5000);
 });
@@ -72,15 +72,17 @@ function getCalendar(){
     url: "ajax/getCalendar.php",
     dataType: "json",
     success: function(result){
+    	alert(result);
       window.myCalendar=result;
     },
     error: function(result){
     	alert(result.responseText);
+    	alert("stop");
     }
    });
    
 	//clearTimeout(timeOutGetCalendar);
-	var timeOutGetCalendar=setTimeout(function(){getCalendar();},300000);
+//	var timeOutGetCalendar=setTimeout(function(){getCalendar();},300000);
 }
 
 function getEffect(effectsTable,width,height){
