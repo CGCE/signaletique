@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<album 
+	showbuttons="no"
+	showtitles="no"
+  showrandom="no"
+  randomstart="no"
+  timer="5"
+  aligntitles="bottom"
+  alignbuttons="top"
+  transition="blur"
+  speed="20"
+  >
+  <img src="img/festival/24.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/1.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/2.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/3.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/4.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/5.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/6.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/7.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/8.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/9.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/10.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/11.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/12.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/13.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/14.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/15.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/16.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/17.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/18.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/19.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/20.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/21.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/22.jpg" title="Festival des écrivains du monde" />
+  <img src="img/festival/23.jpg" title="Festival des écrivains du monde" />
+
+</album>

@@ -1,0 +1,97 @@
+var effets = new Array();
+effets[0]="bounce";
+effets[1]="drop";
+effets[2]="explode";
+effets[3]="fold";
+//effets[4]="pulsate";
+effets[4]="shake";
+effets[5]="clip";
+effets[6]="slide";
+
+var time= 10000;
+
+var slides = new Array();
+slides[0] = {
+content : '<div id="slideContent" style="margin-top:125px;"><h1 class="title-right">Festival des &eacute;crivains du monde</h1> <iframe style="width:700px;height:393px; background:#FFFFFF;" src="//www.youtube.com/embed/v3FNWq6XRCc?rel=0&autoplay=1&controls=0" frameborder="0"></iframe></div>',
+	time : 815000
+};
+
+/*
+slides[1] = {
+content : '<div id="slideContent" style="margin-top:50px;margin-right:0px;"><h1 class="title-right">Arts Arena - Dan Jemmett</h1><h2 class="title-right2">15 October 7:00 PM, Salle de conf&eacute;rence</h2><img src="content/Slide1.png" style="width:700px;" /></div>',
+	time : 45000
+};
+*/
+
+slides[1] = {
+	content : '<div id="slideContent"><h1 class="title-right">Festival des &eacute;crivains du monde</h1><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="700" height="525" id="dewslider4" align="middle" ><param name="allowScriptAccess" value="sameDomain" /><param name="movie" value="dewslider.swf?xml=dewslider.xml" /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" /><embed src="dewslider.swf?xml=dewslider.xml" quality="high" bgcolor="#ffffff" width="700" height="525" name="dewslider4" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /></object></div>',
+	time : 168000
+};
+
+//slides[3] = slides[1];
+
+slides[2] = {
+content : '<div id="slideContent" style="margin-top:70px;"><h1 class="title-right">Going Away: A Paris Atelier Exhibition</h1><iframe allowfullscreen="" frameborder="0" style="height:570px;width:700px;background:#FFFFFF;" src="//www.youtube-nocookie.com/embed/vsweKTKDj9U?rel=0&autoplay=1&controls=0"></iframe></div>',
+	time : 153000
+};
+
+//slides[5] = slides[1];
+
+// test
+// slides[0].time=slides[1].time = slides[2].time=slides[3].time=slides[4].time=slides[5].time=25000;
+var currentSlide=0;
+var i=0;
+
+$(function() {
+		// Accordion
+	var icons={
+		header: "ui-icon-circle-arrow-e",
+		activeHeader: "ui-icon-circle-arrow-s"
+		};
+
+	$("#accordion").accordion();
+	var h=1;
+	var accordion=setInterval(function(){ 
+		h++;
+		if(h==4){h=1;}
+		$("#h"+h).click();
+		}, 20000);
+
+	var marge=(1080-$("#accordion").height())/2;
+	$("#accordion").css("margin-top",marge);
+
+		// Side Right
+	function runEffect() {
+		clearTimeout(timeOut);
+		var randomnumber=Math.floor(Math.random()*7);
+		var selectedEffect = effets[randomnumber];
+		if(i==7){i=0;}
+		currentSlide++;
+		if(currentSlide==3){currentSlide=0;}
+		var options = {};
+		if ( selectedEffect === "scale" ) {
+			options = { percent: 100 };
+		} else if ( selectedEffect === "size" ) {
+			options = { to: { width: 800, height: 600 } };
+		}
+		$("#slides").html(slides[currentSlide].content);
+		$( "#slides" ).show( selectedEffect, options, 1500);
+
+		var timeOut=setTimeout(function(){
+			var randomnumber=Math.floor(Math.random()*7);
+			var selectedEffect = effets[randomnumber];
+			var options = {};
+			if ( selectedEffect === "scale" ) {
+				options = { percent: 0 };
+			} else if ( selectedEffect === "size" ) {
+				options = { to: { width: 200, height: 150 } };
+			}
+			$( "#slides" ).hide(selectedEffect, options, 1500, runEffect);
+			},
+			slides[currentSlide].time);
+		};
+	
+
+	$( "#slides" ).hide();
+	runEffect();
+});
