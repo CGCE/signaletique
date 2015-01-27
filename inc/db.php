@@ -12,7 +12,7 @@ class db
 
 	function db()
 		{
-		$this->host="localhost:3306";
+		$this->host="192.168.6.250:3306";
 		$this->dbname="AffichageDyn";
 		$this->user="AffichageDyn";
 		$this->password="2KrGbN3GSPRYnA6E";

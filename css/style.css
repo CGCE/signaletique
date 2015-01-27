@@ -8,71 +8,50 @@ body{
 	height:1080px;
 	overflow:hidden;
 	cursor:none;
-}
-
-#all{
 	background:#FFFFFF;
-	width:1920px;
-	height:1080px;
-	padding:20px 10px 20px 10px;
 }
 
-#entryWay{
-	position: absolute;
-	top : 0px;
-	left: 15px;
-	width:1150px;
-	height: 1050px;
-	/*border: solid 1px blue;*/
-	/* box-shadow: 8px 8px 8px #888888; */
-}
 
 #side1{
-	position: relative;
-	top : 40px;
-	left: 30px;
+	position: absolute;
+	top : 215px;
+	left: 25px;
 }
 
 #logo{
-	margin: 0 0 10px 0;
+/*	margin: 0 0 10px 0; */
 	/*height: 650px;*/
 }
 
-#content{
-	position: absolute;
-	top: 20px;
-	left: 20px;
-	height:1080px;
-	width: 900px;
-	margin:0;
-	/*border: solid 1px blue;*/
-}
 
-#content h1{
-	margin-top: 13px;
-	font-size: 19pt;
-}
-
+/*
 #banner{
+	display: none;
 	width:100%;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius:5px;
-
-/*	border : solid 1px red;*/
 }
 #banner img{
-	/*border: solid 1px red;*/
 }
+*/
+
 
 #accordion{
+	/* border: 1px solid blue; */
 	position:absolute;
-	bottom:65px;
-	width:900px;
+	left: 100px;
+	bottom : 165px;
+	width:860px;
 }
 
 #accordion div{
 	padding: 20px 0 20px 10px;
+}
+
+#accordion h1{
+	margin-top: 13px;
+	font-size: 19pt;
 }
 
 #table1,#table2,#table3{
@@ -81,18 +60,16 @@ body{
 
 #right{
 	position: absolute;
-	top : 30px;
-	right : 30px;
-	/*left: 1190px; */
+	top : 38px;
+	right : 40px;
 	width: 860px;
-	height: 980px;
+	height: 988px;
 	padding:20px;
 	background:#EEEEEE;
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
 	border-radius:10px;
 	border: solid 1px #CCCCCC; 
-	/* box-shadow: 8px 8px 8px #888888; */
 }
 
 h1,#date{
@@ -150,19 +127,24 @@ h3{
 
 #bottom{
 	position: absolute;
-	left: 20px;
+	left: 100px;
 	bottom: 10px;
 	height: 120px;
-	width:860px;
+	width:840px;
+	background:#EEEEEE;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border: solid 1px #CCCCCC; 
+	padding: 10px;
 }
 
 #date{
 	color: rgb(0, 43, 127);
 	position:absolute;
-	width:100%;
 	height:52px;
-	bottom:34px;
-	left:140px;
+	bottom:42px;
+	left:150px;
 	text-align: left;
 	white-space:nowrap;
 	font-size:22px;
@@ -170,9 +152,7 @@ h3{
 }
 
 #clock{
-	position:absolute;
-	bottom:0px;
-	left:0px;
+	position:relative;
 	width:120px;
 	height:120px;
 }
@@ -185,7 +165,7 @@ h3{
 #flashcode{
 	position:absolute;
 	bottom:15px;
-	right: 0px;
+	right: 20px;
 }
 
 #image1,#image2,#image3{
@@ -207,7 +187,7 @@ h3{
 
 #url{
 	position: absolute;
-	right: 110px;
+	right: 130px;
 	bottom: 16px;
 	padding: 0;
 	margin: 0;
@@ -234,10 +214,11 @@ h3{
 
 #slides{
 	position: absolute;
-	left: 20px;
-	top: 0px;
+	right: 20px;
+	top: 20px;
 	height:720px;
 	width:860px;
+	/* border: 1px solid red; */
 	/*border: solid 1px red;*/
 	/*vertical-align:middle;*/
 	/*border:solid 1px black;*/
@@ -245,6 +226,12 @@ h3{
 
 #slideContent{
 	width:100%;
+}
+
+#slideContent img{
+	max-width='860px;';
+	max-height='1900px;';
+	height:980px;
 }
 
 #events{

@@ -16,9 +16,11 @@ content : '<div id="slideContent" style="margin:0 0 0 30px;"><h1 class="title-ri
 
 var currentEvent=0;
 var currentMedia=0;
+var currentImage=0;
 
 myEvents={};
 myMedias={};
+myImages={};
 
 $(document).ready(function(){
 	// Accordion Left
@@ -42,10 +44,13 @@ $(document).ready(function(){
 	$( "#slides" ).hide();
 	$( "#events" ).hide();
 
-	getEvents();
+/*	getEvents();
 	getMedias();
 	startEvents=setTimeout(function(){runEvents()},5000);
 	startMedias=setTimeout(function(){runMedias()},5000);
+*/
+	getImages();
+	startImages=setTimeout(function(){runImages()},1000);
 });
 
 
@@ -68,6 +73,17 @@ function getMedias(){
     data: "table=medias",
     success: function(result){
       window.myMedias=JSON.parse(result);
+    },
+   });
+}
+
+function getImages(){
+  $.ajax({
+    url: "ajax/getContent.php",
+    type: "get",
+    data: "table=images",
+    success: function(result){
+      window.myImages=JSON.parse(result);
     },
    });
 }
@@ -182,5 +198,53 @@ function runMedias(){
 		},
 		timeMedia);
 	currentMedia++;
+
+}
+
+function runImages(){
+
+	getImages();
+	clearTimeout(timeOutImages);
+	if(currentImage>=myImages.length){currentImage=0;}
+	var e=myImages[currentImage];
+
+	var randomnumber=Math.floor(Math.random()*7);
+	var selectedEffect = effets[randomnumber];
+	var options = {};
+	if ( selectedEffect === "scale" ) {
+		options = { percent: 100 };
+	} else if ( selectedEffect === "size" ) {
+		options = { to: { width: 800, height: 600 } };
+	}
+	
+	var width=e.ratio=="4/3"?800:860;
+	var height=e.ratio=="4/3"?600:484;
+	var marginLeft=e.ratio=="4/3"?30:0;
+	var marginTop=e.ratio=="4/3"?0:55;
+	marginTop=0;
+	marginLeft=0;
+	
+	var html="<div id='slideContent' style='margin:"+marginTop+"px 0 0 "+marginLeft+"px;'>";
+	html+="<img src='http://intranet.reidhall.com/Affichage/upload/thumbs/500/"+e.file+"'/>";
+	html+="</div>";
+	
+	$("#slides").html(html);
+
+	timeImage=(e.time*1000)+4;
+	
+	$("#slides").show(selectedEffect,options, 1500);
+	var timeOutImages=setTimeout(function(){
+		var randomnumber=Math.floor(Math.random()*7);
+		var selectedEffect = effets[randomnumber];
+		var options = {};
+		if ( selectedEffect === "scale" ) {
+			options = { percent: 0 };
+		} else if ( selectedEffect === "size" ) {
+			options = { to: { width: 200, height: 150 } };
+		}
+		$("#slides").hide(selectedEffect, options, 1500, runImages);
+		},
+		timeImage);
+	currentImage++;
 
 }
