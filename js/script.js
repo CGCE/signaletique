@@ -6,7 +6,7 @@ currentImage=0;
 myImages={};
 
 $(document).ready(function(){
-	// Accordion Left
+	// Accordion right
 	var icons={
 		header: "ui-icon-circle-arrow-e",
 		activeHeader: "ui-icon-circle-arrow-s"
@@ -14,18 +14,18 @@ $(document).ready(function(){
 
 	$("#accordion").accordion();
 	
-	// position de #left 
-	var h=(1080-$("#left").height())/2;
-	$("#left").css("top",h);
-
-	// Taille est position de #right
-	$("#right").height($("#left").height()-40);		//40 = padding top+bottom
+	// position de #right 
+	var h=(1080-$("#right").height())/2;
 	$("#right").css("top",h);
-	$("#right").css("right",h);
-	
-	// Position de side1 (logo à gauche)
-	$("#side1").css("left",h);
 
+	// Taille est position de #left
+	$("#left").height($("#right").height()-43);		//43 = padding top+bottom 
+	$("#left").css("top",h);
+	
+	// Taille est position de #banner
+	$("#banner").height($("#right").height());
+	$("#banner-div").css("top",h);
+	$("#logo").css("bottom",$("#banner-div").height()-h);
 
 	// Change de Tab toutes les 20 secondes	
 	var h=1;
@@ -69,14 +69,14 @@ function runImages(){
 	var height=980;
 	if(e.ratio){
 		var height=690/e.ratio;
-		marginTop=($("#right").height()-height)/2;
+		marginTop=($("#left").height()-height)/2;
 	}
 
 	// Insertion de l'image dans le code html
 	var html="<img src='http://intranet.reidhall.com/Affichage/upload/thumbs/690/"+e.file+"' id='myImage' ";
 	html+="style='display:none; width:690px; margin: "+marginTop+"px 0 0 5px;'/>";
 	
-	$("#right").html(html);
+	$("#left").html(html);
 
 	// temps d'ffichage de l'image
 	timeImage=(e.time*1000)+3;

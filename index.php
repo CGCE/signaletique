@@ -23,11 +23,13 @@ include "data.php";
 
 <section id='side1'>
 	<img id='logo' src='img/logo-650v.png' alt='Columbia Global Centers | Europe'/>
-	<!-- <img id='banner' src="img/banner-1000v.png" alt="Columbia Global Centers Banner" /> -->
+	<div id="banner-div">
+		<img id='banner' src="img/banner-1000v.png" alt="Columbia Global Centers Banner" />
+	</div>
 </section> <!-- side1 -->
 
 
-<section id='left'>
+<section id='right'>
 <section id='accordion'>
 <?php
 echo "<h1 id='h1'>{$tab0[0]}</h1>";
@@ -91,11 +93,11 @@ echo date("F d");
 </div> <!-- url -->
 </div> <!-- links -->
 </section> <!-- bottom -->
+</section> <!-- right -->
+
+
+<section id='left'>
 </section> <!-- left -->
-
-
-<section id='right'>
-</section> <!-- Right -->
 
 </body>
 </html>
