@@ -1,47 +1,32 @@
+/* Update : 2015-01-28 */
+
 @font-face {
    font-family: "Trajan Pro";
    src: url('../fonts/TrajanPro-Regular.ttf');
 }
 
 body{
-	width:1920px;
-	height:1080px;
 	overflow:hidden;
 	cursor:none;
 	background:#FFFFFF;
 }
 
-
+/* Logo et bannière de gauche */
 #side1{
 	position: absolute;
 	top : 215px;
-	left: 25px;
 }
 
-#logo{
-/*	margin: 0 0 10px 0; */
-	/*height: 650px;*/
-}
-
-
-/*
-#banner{
-	display: none;
-	width:100%;
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px;
-	border-radius:5px;
-}
-#banner img{
-}
-*/
-
-
-#accordion{
-	/* border: 1px solid blue; */
+/* Pavé de gauche (EntryWay, clock ...) */
+#left{
 	position:absolute;
 	left: 100px;
-	bottom : 165px;
+	width:860px;
+	margin: auto;
+}
+
+/* EntryWay */
+#accordion{
 	width:860px;
 }
 
@@ -54,44 +39,11 @@ body{
 	font-size: 19pt;
 }
 
-#table1,#table2,#table3{
-
+#accordion #h1{
+	margin-top: 0;
 }
 
-#right{
-	position: absolute;
-	top : 38px;
-	right : 40px;
-	width: 860px;
-	height: 988px;
-	padding:20px;
-	background:#EEEEEE;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	border: solid 1px #CCCCCC; 
-}
-
-h1,#date{
-	/*color: rgb(0, 43, 127);*/
-	color: #6BADDE; 
-       	font-family: Trajan Pro;
-       	font-size: 22px;
-       	margin: 20px 0 0 0;
-	/*font-weight: normal;*/
-}
-
-h2,.h2{
-	color: rgb(0, 43, 127);
-	/* color: #6BADDE; */
-	font-family: Adobe Garamond Pro;
-       	font-size: 14pt;
-}
-
-h3{
-	color: #6BADDE;
-}
-
+/* Tableau EntryWay : positionement des colonnes */
 .col00{
 	width: 585px;
 }
@@ -99,7 +51,6 @@ h3{
 .col0{
 	width: 570px;
 	padding: 0 0 0 20px;
-	/* border: solid 1px black; */
 }
 
 .col1,.col2,.col3{
@@ -108,29 +59,17 @@ h3{
 	white-space:nowrap;
 }
 
-.ligne1{
-	padding-bottom:20px;
-}
-
-.subtitle{
-	color: #6BADDE;
-	/* color: rgb(0, 43, 127); */
-       	font-family: Adobe Garamond Pro;
-       	font-size: 18px;
-}
-
+/* Images dans EntryWay Columbia Programs */
 #img-columbia{
 	width:600px;
 	margin: 20px 130px 0 130px;
 	display:none;
 }
 
+/* Pavé en bas à gauche (clock, date ...) */
 #bottom{
-	position: absolute;
-	left: 100px;
-	bottom: 10px;
 	height: 120px;
-	width:840px;
+	margin-top: 10px;
 	background:#EEEEEE;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
@@ -168,23 +107,6 @@ h3{
 	right: 20px;
 }
 
-#image1,#image2,#image3{
-	position: absolute;
-	right: 70px;
-	top: 90px;
-	width: 560px;
-	box-shadow: 8px 8px 8px #888888;
-	display: none;
-}
-
-#image2{
-	top: 330px;
-}
-
-#image3{
-	top: 570px;
-}
-
 #url{
 	position: absolute;
 	right: 130px;
@@ -212,28 +134,48 @@ h3{
 	padding-bottom:0px;
 }
 
-#slides{
+/* Pavé de doites (affichage des Images) */
+#right{
 	position: absolute;
-	right: 20px;
-	top: 20px;
-	height:720px;
-	width:860px;
-	/* border: 1px solid red; */
-	/*border: solid 1px red;*/
-	/*vertical-align:middle;*/
-	/*border:solid 1px black;*/
+	width: 700px;
+	padding:20px;
+	background:#EEEEEE;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border: solid 1px #CCCCCC; 
 }
 
-#slideContent{
-	width:100%;
+
+/* Polices */
+h1,#date{
+	color: #6BADDE; 
+       	font-family: Trajan Pro;
+       	font-size: 22px;
+       	margin: 20px 0 0 0;
 }
 
-#slideContent img{
-	max-width='860px;';
-	max-height='1900px;';
-	height:980px;
+h2,.h2{
+	color: rgb(0, 43, 127);
+	font-family: Adobe Garamond Pro;
+       	font-size: 14pt;
 }
 
+h3{
+	color: #6BADDE;
+}
+
+.subtitle{
+	color: #6BADDE;
+       	font-family: Adobe Garamond Pro;
+       	font-size: 18px;
+}
+
+
+
+
+/* Events : Affichage des événements en petits messages (désactivé) */
+/*
 #events{
 	position:absolute;
 	top:690px;
@@ -260,15 +202,4 @@ h3{
 #eventContent h2{
 	font-family: Adobe Garamond Pro;
 }
-
-.title-right,.title-right2{
-	width:100%;
-	text-align:center;
-	margin-bottom:20px;
-	color: rgb(0, 43, 127);
-}
-
-.title-right2{
-	margin-bottom:30px;
-	color: #6BADDE;
-}
+*/

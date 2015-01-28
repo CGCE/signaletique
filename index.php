@@ -1,4 +1,6 @@
 <?php
+// Update : 2015-01-28
+
 include "data.php";
 ?>
 
@@ -25,14 +27,7 @@ include "data.php";
 </section> <!-- side1 -->
 
 
-
-<!--
-<section id='banner'>
-<img id='logo' src='img/logo-900.png' alt='Columbia Global Centers | Europe'/>
-<img id='banner' src="img/banner-1000.png" alt="Columbia Global Centers Banner" /> 
-</section>
--->
-
+<section id='left'>
 <section id='accordion'>
 <?php
 echo "<h1 id='h1'>{$tab0[0]}</h1>";
@@ -96,30 +91,11 @@ echo date("F d");
 </div> <!-- url -->
 </div> <!-- links -->
 </section> <!-- bottom -->
+</section> <!-- left -->
 
 
-</div> <!-- entryWay -->
-
-
-
-
-<div id='right'>
-<img id='image1' src='img/image2.jpg' alt=''/>
-<img id='image2' src='img/image3.jpg' alt=''/>
-<img id='image3' src='img/image4.jpg' alt=''/>
-
-
-<div id="slides">
-</div>
-
-<div id="events">
-</div>
-
-
-
-</div> <!-- Right -->
-
-
+<section id='right'>
+</section> <!-- Right -->
 
 </body>
 </html>
