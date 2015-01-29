@@ -1,6 +1,5 @@
 <?php
 // Update : 2015-01-29
-
 include "data.php";
 ?>
 
@@ -9,12 +8,12 @@ include "data.php";
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Columbia Global Centers | Europe</title>
-<link rel='StyleSheet' href='css/jquery-ui.css' type='text/css' media='all'/>
+<link rel='StyleSheet' href='vendor/jquery-ui/css/jquery-ui.css' type='text/css' media='all'/>
 <link rel='StyleSheet' href='css/style.css' type='text/css' media='all'/>
-<script type="text/JavaScript" src="js/jquery.js"></script>
-<script type="text/JavaScript" src="js/jquery-ui.js"></script>
-<script type="text/JavaScript" src="js/jquery.easing.1.3.js"></script>
-<script type="text/JavaScript" src="js/jquery.easing.compatibility.js"></script>
+<script type="text/JavaScript" src="vendor/jquery.js"></script>
+<script type="text/JavaScript" src="vendor/jquery-ui/js/jquery-ui.js"></script>
+<script type="text/JavaScript" src="vendor/jquery.easing.1.3.js"></script>
+<script type="text/JavaScript" src="vendor/jquery.easing.compatibility.js"></script>
 <script type="text/JavaScript" src="js/script.js"></script>
 </head>
 

@@ -1,0 +1,7 @@
+<?php
+// Update : 2015-01-29
+
+$config=array("dbhost"=>"ip:port", "dbname"=>"dbname", "dbuser"=>"dbuser", "dbpassword"=>"dbpassword");
+global $config;
+
+?>

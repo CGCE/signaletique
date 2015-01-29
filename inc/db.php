@@ -1,4 +1,8 @@
 <?php
+// Update : 2015-01-29
+
+include "config.php";
+
 class db
 	{
 	var $host;
@@ -12,10 +16,10 @@ class db
 
 	function db()
 		{
-		$this->host="192.168.6.250:3306";
-		$this->dbname="AffichageDyn";
-		$this->user="AffichageDyn";
-		$this->password="2KrGbN3GSPRYnA6E";
+		$this->host=$GLOBALS['config']['dbhost'];
+		$this->dbname=$GLOBALS['config']['dbname'];
+		$this->user=$GLOBALS['config']['dbuser'];
+		$this->password=$GLOBALS['config']['dbpassword'];
 		}
 			
 	function connect()

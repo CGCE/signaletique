@@ -2,7 +2,7 @@
 
 @font-face {
    font-family: "Trajan Pro";
-   src: url('../fonts/TrajanPro-Regular.ttf');
+   src: url('fonts/TrajanPro-Regular.ttf');
 }
 
 body{
@@ -85,15 +85,15 @@ tr{
 
 /* Images dans EntryWay Columbia Programs */
 .background1{
-	background: url("../content/images/columbia1.png") no-repeat bottom;
+	background: url("../img/images/columbia1.png") no-repeat bottom;
 }
 
 .background2{
-	background: url("../content/images/columbia2.png") no-repeat bottom;
+	background: url("../img/columbia2.png") no-repeat bottom;
 }
 
 .background3{
-	background: url("../content/images/columbia3.png") no-repeat bottom;
+	background: url("../img/columbia3.png") no-repeat bottom;
 }
 
 
