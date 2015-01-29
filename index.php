@@ -33,7 +33,7 @@ include "data.php";
 <section id='accordion'>
 <?php
 echo "<h1 id='h1'>{$tab0[0]}</h1>";
-echo "<div>";
+echo "<div id='div1' class='background1'>";
 echo $colonne1;
 echo "<table id='table1'>\n";
 foreach($tab1 as $elem){
@@ -42,18 +42,17 @@ foreach($tab1 as $elem){
 echo "</table>\n";	// table1
 echo "</div>";
 echo "<h1 id='h2'>{$tab0[1]}</h1>\n";
-echo "<div>";
+echo "<div id='div2' class='background2'>";
 echo $colonne1;
 echo "<table id='table2'>\n";
 foreach($tab2 as $elem){
 	echo "<tr class='h2'><td class='col0'>{$elem[0]}</td><td class='col1'>{$elem[1]}</td><td class='col2'>{$elem[2]}</td><td class='col3'>{$elem[3]}</td></tr>\n";
 }
 echo "</table>\n";	// table2
-echo "<img src='content/images/col-sp14-600.jpg' id='img-columbia'/>";
 echo "</div>";
 
 echo "<h1 id='h3'>{$tab0[2]}</h1>\n";
-echo "<div>";
+echo "<div id='div3'>";
 echo $colonne1;
 echo "<table id='table3'>\n";
 foreach($tab3 as $elem){

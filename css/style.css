@@ -63,6 +63,10 @@ body{
 }
 
 /* Tableau EntryWay : positionement des colonnes */
+tr{
+	vertical-align:bottom;
+}
+
 .col00{
 	width: 585px;
 }
@@ -78,15 +82,20 @@ body{
 	white-space:nowrap;
 }
 
+
 /* Images dans EntryWay Columbia Programs */
-#img-columbia{
-	position: relative;
-	bottom:0;
-	text-align: center;
-	width:600px;
-	margin: 20px 120px 0 120px;
-	display:none;
+.background1{
+	background: url("../content/images/columbia1.png") no-repeat bottom;
 }
+
+.background2{
+	background: url("../content/images/columbia2.png") no-repeat bottom;
+}
+
+.background3{
+	background: url("../content/images/columbia3.png") no-repeat bottom;
+}
+
 
 /* Pavé en bas à gauche (clock, date ...) */
 #bottom{
@@ -165,6 +174,9 @@ body{
 	border: solid 1px #CCCCCC; 
 }
 
+#left img{
+	border-radius: 10px;
+}
 
 /* Polices */
 h1{

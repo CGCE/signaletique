@@ -30,17 +30,34 @@ $(document).ready(function(){
 		$("#bottom div").each(function(){
 			$(this).css("margin-top",(120-$(this).height())/2);
 		});
+		
+		// Position de l'image du div columbia
+		$("#img-columbia").css("bottom",300);
 		}, 3000
 	);
 	
 	// Change de Tab toutes les 20 secondes	
 	var h=1;
+	var bg=1;
+	
 	var accordion=setInterval(function(){ 
 		h++;
 		if(h==4){h=1;}
+		
+		// Change le background des div1 et 2
+		if(h==1 || h==2){
+			bg++;
+			if(bg==4){bg=1;}
+			$("#div"+h).removeClass("background1");
+			$("#div"+h).removeClass("background2");
+			$("#div"+h).removeClass("background3");
+			$("#div"+h).addClass("background"+bg);
+		}
+
+
 		$("#h"+h).click();
 		}, 20000);
-		
+
 	getImages();
 	startImages=setTimeout(function(){runImages()},1000);
 });
