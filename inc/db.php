@@ -104,10 +104,10 @@ class dbh{
 
 
   function dbh(){
-	    $this->dbhost="localhost";
-	    $this->dbname="events";
-	    $this->dbuser="events";
-	    $this->dbpass="2KrGbN3GSPRYnA6E";
+	    $this->dbhost=$GLOBALS['config']['dbhost'];
+	    $this->dbname=$GLOBALS['config']['dbname'];
+	    $this->dbuser=$GLOBALS['config']['dbuser'];
+	    $this->dbpass=$GLOBALS['config']['dbpassword'];
 
 	    $this->pdo=new PDO("mysql:host={$this->dbhost};dbname={$this->dbname}",$this->dbuser,$this->dbpass);
 	    }
