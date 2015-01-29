@@ -1,4 +1,4 @@
-// Update : 2015-01-28
+// Update : 2015-01-29
 
 effets=["fold","slide","fade"];
 
@@ -7,26 +7,32 @@ myImages={};
 
 $(document).ready(function(){
 	// Accordion right
-	var icons={
-		header: "ui-icon-circle-arrow-e",
-		activeHeader: "ui-icon-circle-arrow-s"
-		};
-
 	$("#accordion").accordion();
 	
-	// position de #right 
-	var h=(1080-$("#right").height())/2;
-	$("#right").css("top",h);
+	// var margin utilisée pour aligner #logo, #banner, #left et #right 
+	var margin=(1080-$("#right").height())/2;
+	
+	// Position de #right 
+	$("#right").css("top",margin);
 
 	// Taille est position de #left
-	$("#left").height($("#right").height()-43);		//43 = padding top+bottom 
-	$("#left").css("top",h);
-	
-	// Taille est position de #banner
-	$("#banner").height($("#right").height());
-	$("#banner-div").css("top",h);
-	$("#logo").css("bottom",$("#banner-div").height()-h);
+	$("#left").height($("#right").height()-46);		//43 = padding top+bottom 
+	$("#left").css("top",margin);
 
+	// Positionnement des images (logo, bannière, flashcode). Le Timeout permet d'attendre le chargement des images avant de les positionner
+	setTimeout(function(){
+		// Taille est position de #banner
+		$("#banner").height($("#right").height());
+		$("#banner-div").css("top",margin);
+		$("#logo").css("bottom",margin);
+
+		// Position de la date
+		$("#bottom div").each(function(){
+			$(this).css("margin-top",(120-$(this).height())/2);
+		});
+		}, 3000
+	);
+	
 	// Change de Tab toutes les 20 secondes	
 	var h=1;
 	var accordion=setInterval(function(){ 

@@ -1,5 +1,5 @@
 <?php
-// Update : 2015-01-28
+// Update : 2015-01-29
 
 include "data.php";
 ?>
@@ -67,13 +67,6 @@ echo "</div>";
 
 
 <section id='bottom'>
-<div id='date'>
-<?php
-echo date("l");
-echo "<br/>\n";
-echo date("F d");
-?>
-</div> <!-- date -->
 
 <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://active.macromedia.com/flash5/cabs/swflash.cab#version=5,0,0,0" id='clock'>
 	<param name="MOVIE" value="clock8.swf">
@@ -84,14 +77,24 @@ echo date("F d");
 	<embed src="img/clock8.swf" id='clockImg' PLAY="true" LOOP="true" WMODE="Transparent" QUALITY="high" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
 </object>
 
-<div id='links'>
-<img src='img/flashcode.png' alt='flashcode' id='flashcode' />
+<div id='date'>
+<?php
+echo date("l");
+echo "<br/>\n";
+echo date("F d");
+?>
+</div> <!-- date -->
+
 <div id='url'>
 <h2><label>ColumbiaGlobalCentersEurope</label><img src='img/facebook25.png'/></h2>
 <h2><label>@ColumbiaGCEuro</label><img src='img/twitter25.png'/></h2>
 <h2><label>globalcenters.columbia.edu/paris</label><img src='img/internet.png'/></h2>
 </div> <!-- url -->
-</div> <!-- links -->
+
+<div id='flashcode-div'>
+<img src='img/flashcode.png' alt='flashcode' id='flashcode' />
+</div>
+
 </section> <!-- bottom -->
 </section> <!-- right -->
 

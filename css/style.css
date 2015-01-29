@@ -1,4 +1,4 @@
-/* Update : 2015-01-28 */
+/* Update : 2015-01-29 */
 
 @font-face {
    font-family: "Trajan Pro";
@@ -36,12 +36,12 @@ body{
 	padding:0;
 }
 
-/* Pavé de gauche (EntryWay, clock ...) */
+/* Pavé de droite (EntryWay, clock ...) */
 #right{
 	position:absolute;
 	right: 50px;
 	width:860px;
-	margin: auto;
+	min-height: 1016px;
 }
 
 /* EntryWay */
@@ -80,34 +80,26 @@ body{
 
 /* Images dans EntryWay Columbia Programs */
 #img-columbia{
+	position: relative;
+	bottom:0;
+	text-align: center;
 	width:600px;
-	margin: 20px 130px 0 130px;
+	margin: 20px 120px 0 120px;
 	display:none;
 }
 
 /* Pavé en bas à gauche (clock, date ...) */
 #bottom{
 	height: 120px;
-	margin-top: 10px;
+	margin: 13px 0 0 0;
 	background:#EEEEEE;
 	border-radius:5px;
 	border: solid 1px #CCCCCC; 
 	padding: 10px;
 }
 
-#date{
-	color: rgb(0, 43, 127);
-	position:absolute;
-	height:52px;
-	bottom:42px;
-	left:160px;
-	text-align: left;
-	white-space:nowrap;
-	font-size:22px;
-	font-weight: normal;
-}
-
 #clock{
+	display: inline-block;
 	position:relative;
 	width:120px;
 	height:120px;
@@ -118,25 +110,34 @@ body{
 	height:120px;
 }
 
-#flashcode{
+#date{
+	display: inline-block;
 	position:absolute;
-	bottom:15px;
+	left:150px;
+	text-align: left;
+	white-space:nowrap;
+	color: rgb(0, 43, 127);
+	font-family: Trajan Pro;
+	font-size: 22px;
+}
+
+#flashcode-div{
+	display: inline-block;
+	position:absolute;
 	right: 20px;
 }
 
 #url{
+	display: inline-block;
 	position: absolute;
 	right: 130px;
-	bottom: 16px;
-	padding: 0;
-	margin: 0;
 	text-align:right;
+	padding-top:4px;
 }
 
 #url h2{
 	font-weight: normal;
 	font-size : 13pt;
-	margin: 10px 0 10px 0;
 	margin: 0;
 }
 
@@ -166,21 +167,17 @@ body{
 
 
 /* Polices */
-h1,#date{
+h1{
 	color: #6BADDE; 
-       	font-family: Trajan Pro;
-       	font-size: 22px;
-       	margin: 20px 0 0 0;
-}
-
-#date {
-	color: rgb(0, 43, 127);
+	font-family: Trajan Pro;
+	font-size: 22px;
+	margin: 20px 0 0 0;
 }
 
 h2,.h2{
 	color: rgb(0, 43, 127);
 	font-family: Adobe Garamond Pro;
-       	font-size: 14pt;
+    font-size: 14pt;
 }
 
 h3{
@@ -189,8 +186,8 @@ h3{
 
 .subtitle{
 	color: #6BADDE;
-       	font-family: Adobe Garamond Pro;
-       	font-size: 18px;
+    font-family: Adobe Garamond Pro;
+    font-size: 18px;
 }
 
 
