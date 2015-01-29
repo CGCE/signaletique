@@ -85,7 +85,7 @@ tr{
 
 /* Images dans EntryWay Columbia Programs */
 .background1{
-	background: url("../img/images/columbia1.png") no-repeat bottom;
+	background: url("../img/columbia1.png") no-repeat bottom;
 }
 
 .background2{
@@ -94,6 +94,22 @@ tr{
 
 .background3{
 	background: url("../img/columbia3.png") no-repeat bottom;
+}
+
+.background4{
+	background: url("../img/columbia4.png") no-repeat bottom;
+}
+
+.background5{
+	background: url("../img/columbia5.png") no-repeat bottom;
+}
+
+.background6{
+	background: url("../img/columbia6.png") no-repeat bottom;
+}
+
+.background7{
+	background: url("../img/columbia7.png") no-repeat bottom;
 }
 
 

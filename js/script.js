@@ -47,10 +47,14 @@ $(document).ready(function(){
 		// Change le background des div1 et 2
 		if(h==1 || h==2){
 			bg++;
-			if(bg==4){bg=1;}
+			if(bg==8){bg=1;}
 			$("#div"+h).removeClass("background1");
 			$("#div"+h).removeClass("background2");
 			$("#div"+h).removeClass("background3");
+			$("#div"+h).removeClass("background4");
+			$("#div"+h).removeClass("background5");
+			$("#div"+h).removeClass("background6");
+			$("#div"+h).removeClass("background7");
 			$("#div"+h).addClass("background"+bg);
 		}
 
