@@ -1,5 +1,6 @@
 <?php
-// Update : 2015-01-29
+// Update : 2015-02-03
+
 include "data.php";
 ?>
 
@@ -31,35 +32,17 @@ include "data.php";
 <section id='right'>
 <section id='accordion'>
 <?php
-echo "<h1 id='h1'>{$tab0[0]}</h1>";
-echo "<div id='div1' class='background1'>";
-echo $colonne1;
-echo "<table id='table1'>\n";
-foreach($tab1 as $elem){
-	echo "<tr class='h2'><td class='col0'>{$elem[0]}</td><td class='col1'>{$elem[1]}</td><td class='col2'>{$elem[2]}</td><td class='col3'>{$elem[3]}</td></tr>\n";
+for($i=1;$i<4;$i++){
+	echo "<h1 id='h$i'>{$title[$i]}</h1>";
+	echo "<div id='div$i' class='background$i'>";
+	echo $colonne1;
+	echo "<table id='table$i'>\n";
+	foreach($tab[$i] as $elem){
+		echo "<tr class='h2'><td class='col0'>{$elem['name']}</td><td class='col1'>{$elem['office']}</td><td class='col2'>{$floors[$elem['floor']]}</td><td class='col3'>{$elem['stairs']}</td></tr>\n";
+	}
+	echo "</table>\n";
+	echo "</div>";
 }
-echo "</table>\n";	// table1
-echo "</div>";
-echo "<h1 id='h2'>{$tab0[1]}</h1>\n";
-echo "<div id='div2' class='background2'>";
-echo $colonne1;
-echo "<table id='table2'>\n";
-foreach($tab2 as $elem){
-	echo "<tr class='h2'><td class='col0'>{$elem[0]}</td><td class='col1'>{$elem[1]}</td><td class='col2'>{$elem[2]}</td><td class='col3'>{$elem[3]}</td></tr>\n";
-}
-echo "</table>\n";	// table2
-echo "</div>";
-
-echo "<h1 id='h3'>{$tab0[2]}</h1>\n";
-echo "<div id='div3'>";
-echo $colonne1;
-echo "<table id='table3'>\n";
-foreach($tab3 as $elem){
-	echo "<tr class='h2'><td class='col0'>{$elem[0]} <span class='subtitle'>{$elem[1]}</span> </td><td class='col1'>{$elem[2]}</td><td class='col2'>{$elem[3]}</td><td class='col3'>{$elem[4]}</td></tr>\n";
-}
-echo "</table>\n";	// table3
-echo "</div>";
-
 ?>
 </section> <!-- accordion -->
 
