@@ -1,4 +1,4 @@
-/* Update : 2015-01-29 */
+/* Update : 2015-02-03 */
 
 @font-face {
    font-family: "Trajan Pro";
@@ -65,10 +65,6 @@ body{
 /* Tableau EntryWay : positionement des colonnes */
 tr{
 	vertical-align:bottom;
-}
-
-.col00{
-	width: 585px;
 }
 
 .col0{

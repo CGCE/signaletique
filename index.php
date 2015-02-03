@@ -35,8 +35,8 @@ include "data.php";
 for($i=1;$i<4;$i++){
 	echo "<h1 id='h$i'>{$title[$i]}</h1>";
 	echo "<div id='div$i' class='background$i'>";
-	echo $colonne1;
 	echo "<table id='table$i'>\n";
+	echo $colonne1;
 	foreach($tab[$i] as $elem){
 		echo "<tr class='h2'><td class='col0'>{$elem['name']}</td><td class='col1'>{$elem['office']}</td><td class='col2'>{$floors[$elem['floor']]}</td><td class='col3'>{$elem['stairs']}</td></tr>\n";
 	}

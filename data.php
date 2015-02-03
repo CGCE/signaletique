@@ -6,8 +6,8 @@ include "inc/db.php";
 $floors=array();
 $floors[0]="RDC / 1<sup>st</sup>";
 $floors[1]="1<sup>er</sup> / 2<sup>nd</sup>";
-$floors[2]="2<sup>&egrave;me</sup> / 3<sup>rd</sup>";
-$floors[3]="3<sup>&egrave;me</sup> / 4<sup>th</sup>";
+$floors[2]="2<sup>e</sup> / 3<sup>rd</sup>";
+$floors[3]="3<sup>e</sup> / 4<sup>th</sup>";
 
 $db=new db();
 $db->select("bureaux");
@@ -26,14 +26,12 @@ if($db->result){
 }
 
 $colonne1=<<<EOD
-<table>
-<tr><td class='col00'>
+<tr><td>
 </td>
-<td class='col1 ligne1'><span class='subtitle'>Bureau<br/>Office</span></td>
-<td class='col2 ligne1'><span class='subtitle'>Etage<br/>Floor</span></td>
-<td class='col3 ligne1'><span class='subtitle'>Escalier<br/>Stairs</span></td>
+<td class='col1'><span class='subtitle'>Bureau<br/>Office</span></td>
+<td class='col2'><span class='subtitle'>Etage<br/>Floor</span></td>
+<td class='col3'><span class='subtitle'>Escalier<br/>Stairs</span></td>
 </tr>
-</table>
 EOD;
 ?>
 
